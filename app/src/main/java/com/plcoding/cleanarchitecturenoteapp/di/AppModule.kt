@@ -7,8 +7,8 @@ import com.plcoding.cleanarchitecturenoteapp.feature_note.data.repository.NoteRe
 import com.plcoding.cleanarchitecturenoteapp.feature_note.domain.repository.NoteRepository
 import com.plcoding.cleanarchitecturenoteapp.feature_note.domain.use_case.AddNote
 import com.plcoding.cleanarchitecturenoteapp.feature_note.domain.use_case.DeleteNote
-import com.plcoding.cleanarchitecturenoteapp.feature_note.domain.use_case.GetNotes
-import com.plcoding.cleanarchitecturenoteapp.feature_note.domain.use_case.NotesUseCases
+import com.plcoding.cleanarchitecturenoteapp.feature_note.domain.use_case.GetNote
+import com.plcoding.cleanarchitecturenoteapp.feature_note.domain.use_case.NoteUseCases
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -37,11 +37,12 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideNoteUseCases(repository: NoteRepository) : NotesUseCases {
-        return NotesUseCases(
-            getNotes = GetNotes(repository),
+    fun provideNoteUseCases(repository: NoteRepository) : NoteUseCases {
+        return NoteUseCases(
+            getNotes = GetNote(repository),
             deleteNote = DeleteNote(repository),
-            addNote = AddNote(repository)
+            addNote = AddNote(repository),
+            getNote = getNote(repository)
         )
     }
 
