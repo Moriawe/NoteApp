@@ -21,7 +21,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideNoteDatabase(app : Application) : NoteDatabase {
+    fun provideNoteDatabase(app: Application): NoteDatabase {
         return Room.databaseBuilder(
             app,
             NoteDatabase::class.java,
