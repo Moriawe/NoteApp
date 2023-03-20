@@ -1,6 +1,7 @@
 package com.plcoding.cleanarchitecturenoteapp.feature_note.data.data_source
 
 import androidx.room.Database
+import androidx.room.RoomDatabase
 import com.plcoding.cleanarchitecturenoteapp.feature_note.domain.model.Note
 
 @Database(
@@ -9,7 +10,7 @@ import com.plcoding.cleanarchitecturenoteapp.feature_note.domain.model.Note
 )
 
 
-abstract class NoteDatabase {
+abstract class NoteDatabase: RoomDatabase() {
 
     abstract val noteDao : NoteDao
 
