@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CleanArchitectureNoteApp</string>
+    <string name="sort">Sort</string>
 </resources>

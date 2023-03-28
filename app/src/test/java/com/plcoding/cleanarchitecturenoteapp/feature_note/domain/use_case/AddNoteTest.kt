@@ -23,7 +23,23 @@ internal class AddNoteTest{
     @Test
     fun `Add note without title`() = runBlocking {
 
-        val note = Note(" ", "Hi, this is me typing", 120315, 1)
+        val note = Note("", "Content", 120315, 1)
+        assertThat(addNote.invoke(note))
+
+    }
+
+    @Test
+    fun `Add note without content`() = runBlocking {
+
+        val note = Note("Title", "", 120315, 1)
+        assertThat(addNote.invoke(note))
+
+    }
+
+    @Test
+    fun `Add note to repository`() = runBlocking {
+
+        val note = Note("Title", "Content", 120315, 1)
         assertThat(addNote.invoke(note))
 
     }
