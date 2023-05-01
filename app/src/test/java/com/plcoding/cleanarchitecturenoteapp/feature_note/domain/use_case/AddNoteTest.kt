@@ -14,17 +14,23 @@ internal class AddNoteTest{
     private lateinit var addNote: AddNote
     private lateinit var fakeRepository: FakeNoteRepository
 
+    private val validNote = Note("Title", "Content", 10, 1)
+    private val emptyTitleNote = Note("", "Content", 10, 1)
+    private val emptyContentNote = Note("Title", "", 10, 1)
+
     @Before
     fun setUp() {
         fakeRepository = FakeNoteRepository()
         addNote = AddNote(fakeRepository)
     }
 
+    // Not finished with the testcases yet
     @Test
     fun `Add note without title`() = runBlocking {
 
-        val note = Note("", "Content", 120315, 1)
-        assertThat(addNote.invoke(note))
+        //val note = Note("", "Content", 120315, 1)
+        addNote(validNote)
+        assertEquals(validNote, fakeRepository.getLas )
 
     }
 
